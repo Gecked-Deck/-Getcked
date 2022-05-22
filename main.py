@@ -1,0 +1,1 @@
+print("Gecked's essential flatpak fetcher v0.1")
