@@ -45,7 +45,7 @@ install = open("install.desktop", "w")
 install.write(write)
 install.close()
 
-packages = 'echo -e "WARNING!" && echo -e "THIS SCRIPT UNINSTALLS EVERYTHING INSTALLED BY THE INSTALL SCRIPT" && "EVEN IF YOU HAVE REINSTALLED IT SINCE" && echo -e "YOU HAVE 10 SECONDS TO CLOSE THE WINDOW, BEFORE THE UNINSTALLATION PROCESS BEGINS!" && echo -e "Unnstalling ' + str(installList[0]) + '..." && flatpak uninstall ' + str(scriptinstallList[0]) + ' > /dev/null -y'
+packages = 'echo -e "WARNING!" && echo -e "THIS SCRIPT UNINSTALLS EVERYTHING INSTALLED BY THE INSTALL SCRIPT" && echo -e "EVEN IF YOU HAVE REINSTALLED IT SINCE" && echo -e "YOU HAVE 10 SECONDS TO CLOSE THE WINDOW, BEFORE THE UNINSTALLATION PROCESS BEGINS!" && sleep 10 && echo -e "Unnstalling ' + str(installList[0]) + '..." && flatpak uninstall ' + str(scriptinstallList[0]) + ' > /dev/null -y'
 for x in range (1, len(scriptinstallList)):
   packages = str(packages) + ' && echo -e "Uninstalling ' + str(installList[x]) + '..." && flatpak uninstall ' + str(scriptinstallList[x]) + ' > /dev/null -y'
 packages = str(packages) + ' && echo -e "Completed" && sleep 5'
